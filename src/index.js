@@ -1,11 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import App from './App';
-import Home from './core/Home';
+import {StrictMode} from 'react';
+import {createRoot} from 'react-dom/client'
+import Routess from "./Routes";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+
+const rootElement = document.getElementById('root');
+const root = createRoot(rootElement);
 root.render(
-  <React.StrictMode>
-    <Home />
-  </React.StrictMode>
+  <StrictMode>
+    <Routess />
+  </StrictMode>,
 );
+// ReactDOM.render(<routess />, document.getElementById("root"));

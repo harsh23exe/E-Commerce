@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import ImageHelper from "./helper/imageHelper";
 import { Navigate } from "react-router-dom";
-// import { addItemToCart, removeItemFromCart } from "./helper/cartHelper";
+import { addItemToCart, removeItemFromCart } from "./helper/cartHelper";
 // import { isAuthenticated } from "../auth/helper";
 
 const Card = ({
@@ -10,7 +10,7 @@ const Card = ({
   removeFromCart = false,
   reload = undefined,
   setReload = (f) => f,
-  isAuthenticated=false
+  isAuthenticated=true
 //   function(f){return f}
 }) => {
   const [redirect, setRedirect] = useState(false);
@@ -21,7 +21,7 @@ const Card = ({
 
   const addToCart = () => {
     if (isAuthenticated) {
-    //   addItemToCart(product, () => setRedirect(true));
+      addItemToCart(product, () => setRedirect(true));
       console.log("Added to cart");
     } else {
       console.log("Login Please!");
@@ -53,8 +53,8 @@ const Card = ({
         <button
           onClick={() => {
             //TODO: handle this too
-            // removeItemFromCart(product.id);
-            // setReload(!reload);
+            removeItemFromCart(product.id);
+            setReload(!reload);
 
             console.log("Product removed from cart");
           }}
